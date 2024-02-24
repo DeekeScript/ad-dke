@@ -77,7 +77,7 @@
         5.执行“docker ps -a”可以看到 nginx、PHP、mysql、Node都已启动
         6.如果各个配置都正确，这个时候访问你的域名，应该就能看到登录界面，如下：
 
-<img alt="登录页面" src="image/backend-1-1.png" title="抖音小说小程序登录页面" width="100%"/>
+<img alt="登录页面" src="image/backend-1.png" title="抖音小说小程序登录页面" width="100%"/>
 
 ### 如果需要查看后台页面，请访问以下地址：
 
