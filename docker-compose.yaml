@@ -1,0 +1,151 @@
+version: "3.8"
+services:
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - C:\Users\Administrator\Desktop\jiangqiao\redis\redis.conf:/usr/local/redis/redis.conf:ro
+      - C:\Users\Administrator\Desktop\jiangqiao\redis\data:/data
+    environment:
+      - TZ=Asia/Shanghai # 设置时区
+    command:
+      redis-server /usr/local/redis/redis.conf --appendonly yes
+    networks:
+      - frontend
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - C:\Users\Administrator\Desktop\jiangqiao\mysql\data:/var/lib/mysql
+      - C:\Users\Administrator\Desktop\jiangqiao\mysql\conf.d:/etc/mysql/conf.d
+      - C:\Users\Administrator\Desktop\jiangqiao\mysql\my.cnf:/etc/mysql/my.cnf:ro
+      - C:\Users\Administrator\Desktop\jiangqiao\mysql\lib\mysql-files:/var/lib/mysql-files
+    networks:
+      - backend
+      
+  php:
+    container_name: php
+    image: jiangqiao/php-7.2.33-fpm-banban-2021-11:latest
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - C:\Users\Administrator\Desktop\jiangqiao\php\php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
+      - C:\Users\Administrator\Desktop\jiangqiao\php\conf.d:/usr/local/etc/php-fpm/php-fpm.d
+      - C:\Users\Administrator\Desktop\jiangqiao\nginx\html:/var/www/html
+      - C:\Users\Administrator\Desktop\jiangqiao\php\php.ini:/usr/local/etc/php/php.ini
+    environment:
+      - TZ=Asia/Shanghai # 设置时区
+    networks:
+      - frontend
+      - backend
+    links:
+      - redis
+      - mysql
+      # - nsqd
+  
+  nginx:
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    image: nginx:alpine
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - C:\Users\Administrator\Desktop\jiangqiao\nginx\conf\nginx.conf:/etc/nginx/nginx.conf:ro
+      - C:\Users\Administrator\Desktop\jiangqiao\nginx\conf\conf.d:/etc/nginx/conf.d
+      - C:\Users\Administrator\Desktop\jiangqiao\nginx\html:/usr/share/nginx/html
+      - C:\Users\Administrator\Desktop\jiangqiao\nginx\cert:/etc/nginx/cert
+    networks:
+      - frontend
+    links:
+      - php
+
+  node:
+    container_name: node
+    image: node:16.20.2
+    environment:
+      - TZ=Asia/Shanghai # 设置时区
+      - NODE_ENV=development
+    volumes:
+      - C:\Users\Administrator\Desktop\jiangqiao\nginx\html\dke\antd\app:/root
+    working_dir: /root
+    ports:
+      - "8000:8000"
+    command: npm run start:dev
+    networks:
+      - backend
+
+  # elasticsearch:
+  #   container_name: elasticsearch
+  #   ports:
+  #     - "9200:9200"
+  #     - "9300:9300"
+  #   image: elasticsearch:7.1.0
+  #   environment:
+  #     - TZ=Asia/Shanghai
+  #     - "cluster.name=elasticsearch" #设置集群名称为elasticsearch
+  #     - "discovery.type=single-node" #以单一节点模式启动
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx1096m" #设置使用jvm内存大小
+  #     - bootstrap.memory_lock=true
+  #   volumes:
+  #     - C:\Users\Administrator\Desktop\jiangqiao\elasticsearch\data:/usr/share/elasticsearch/data
+  #   networks:
+  #     - backend
+
+  # beanstalk:
+  #   container_name: beanstalk
+  #   ports:
+  #     - "11300:11300"
+  #   image: schickling/beanstalkd:latest
+  #   environment:
+  #     - TZ=Asia/Shanghai
+  #   networks:
+  #     - backend
+     
+  # nsqlookupd:
+  #   container_name: nsqlookupd
+  #   image: nsqio/nsq:latest
+  #   command: /nsqlookupd
+  #   networks:
+  #     - backend
+  #   ports:
+  #     - "4160:4160"
+  #     - "4161:4161"
+
+  # nsqd:
+  #   container_name: nsqd
+  #   ports:
+  #     - "4150:4150"
+  #     - "4151:4151"
+  #   image: nsqio/nsq:latest
+  #   command: /nsqd --lookupd-tcp-address=nsqlookupd:4160
+  #   networks:
+  #     - backend
+
+  # nsqadmin:
+  #   image: nsqio/nsq:latest
+  #   command: /nsqadmin --lookupd-http-address=nsqlookupd:4161
+  #   networks:
+  #     - backend
+  #   depends_on:
+  #     - nsqlookupd
+  #   ports:
+  #     - "4171:4171"
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  db-data:

@@ -1,0 +1,16 @@
+{
+    "name": "嘀客",
+    "main": "core.js",
+    "ignore": [
+        "build"
+    ],
+    "launchConfig": {
+        "hideLogs": true,
+        "displaySplash": false,
+        "splashText": "嘀客技术部提供技术支持",
+        "stableMode": false
+    },
+    "packageName": "com.dke",
+    "versionName": "5.1.3",
+    "versionCode": 513
+}

@@ -1,0 +1,89 @@
+version: "3.8"
+services:
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - /root/dke/redis/redis.conf:/usr/local/redis/redis.conf:ro
+      - /root/dke/redis/data:/data
+    environment:
+      - TZ=Asia/Shanghai # 设置时区
+    command:
+      redis-server /usr/local/redis/redis.conf --appendonly yes
+    networks:
+      - frontend
+
+  node:
+    image: node:18.13.0
+    working_dir: /home/node/app
+    command: /bin/bash -c "npm config set registry https://registry.npm.taobao.org && npm run start:dev"
+    volumes:
+      - /root/dke/nginx/html/antd/app:/home/node/app
+    ports:
+      - 8000:8000
+    networks:
+      - frontend
+      - backend
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    volumes:
+      - /root/dke/mysql/data:/var/lib/mysql
+      - /root/dke/mysql/mysql-files:/var/lib/mysql-files
+      - /root/dke/mysql/conf.d:/etc/mysql/conf.d
+      - /root/dke/mysql/my.cnf:/etc/mysql/my.cnf:ro
+    networks:
+      - backend
+      
+  php:
+    container_name: php
+    image: jiangqiao/php-7.2.33-fpm-banban-2021-11:latest
+    ports:
+      - "9000:9000"
+    volumes:
+      - /root/dke/php/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
+      - /root/dke/php/conf.d:/usr/local/etc/php-fpm/php-fpm.d
+      - /root/dke/nginx/html:/var/www/html
+      - /root/dke/php/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      - TZ=Asia/Shanghai # 设置时区
+    networks:
+      - frontend
+      - backend
+    links:
+      - redis
+      - mysql
+      # - nsqd
+
+  nginx:
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    image: nginx:alpine
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /root/dke/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /root/dke/nginx/conf/conf.d:/etc/nginx/conf.d
+      - /root/dke/nginx/html:/usr/share/nginx/html
+      - /root/dke/nginx/cert:/etc/nginx/cert
+    networks:
+      - frontend
+    links:
+      - php
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  db-data:

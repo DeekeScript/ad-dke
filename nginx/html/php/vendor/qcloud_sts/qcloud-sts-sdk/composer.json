@@ -1,0 +1,28 @@
+{
+    "name": "qcloud_sts/qcloud-sts-sdk",
+    "description": "PHP SDK for QCloud STS",
+    "keywords": [
+        "qcloud", "sts", "cos", "php"
+    ],
+	"homepage": "https://github.com/tencentyun/qcloud-cos-sts-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "qcloudterminal",
+            "email": "qcloudterminal@gmail.com"
+        },
+        {
+            "name": "tuunalai",
+            "email": "550566181@qq.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "QCloud\\COSSTS\\": "src"
+      }
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "ext-curl": "*"
+    }
+}

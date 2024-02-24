@@ -1,0 +1,65 @@
+下面是”快手“各个页面的activity，某些场景可以通过判断是否打开了对应的activity
+
+
+//查看每个页面的activity
+//切换到其他应用之后   再切换到抖音【任何页面】   com.android.systemui.recents.RecentsActivity
+
+//首页-精选          com.yxcorp.gifshow.HomeActivity
+
+//首页-发现          com.yxcorp.gifshow.HomeActivity
+
+//首页-关注          com.yxcorp.gifshow.HomeActivity
+
+//首页-关注-视频      com.yxcorp.gifshow.detail.PhotoDetailActivity
+
+//首页-侧边栏         androidx.slidingpanelayout.widget.SlidingPaneLayout
+
+//首页-直播广场-直播   com.yxcorp.gifshow.detail.PhotoDetailActivity
+
+//直播间-弹窗         com.kwai.library.widget.dialog.a
+
+//直播间-观众榜单      com.kuaishou.live.core.basic.widget.e0$a
+
+//用户-弹出层-详情     com.kwai.library.widget.dialog.a
+
+//直播间-更多直播      com.yxcorp.gifshow.detail.PhotoDetailActivity
+
+//用户-主页           com.yxcorp.gifshow.profile.activity.UserProfileActivity
+
+
+
+
+/////抖音
+
+//切换到其他应用之后   再切换到抖音【任何页面】   com.android.systemui.recents.RecentsActivity
+
+//首页-推荐           com.ss.android.ugc.aweme.main.MainActivity
+
+//首页-关注           com.ss.android.ugc.aweme.main.MainActivity
+
+//首页-同城           com.ss.android.ugc.aweme.main.MainActivity
+
+//检查更新-弹窗        com.ss.android.ugc.aweme.update.a.a
+
+//访问位置-弹窗        androidx.appcompat.app.AlertDialog
+
+//首页-搜索           com.ss.android.ugc.aweme.search.activity.SearchResultActivity
+
+//搜索-结果页面        com.ss.android.ugc.aweme.search.activity.SearchResultActivity
+
+//直播页              com.ss.android.ugc.aweme.live.LivePlayActivity
+
+//直播-更多直播        androidx.drawerlayout.widget.DrawerLayout
+
+//直播-更多直播-搜索    androidx.drawerlayout.widget.DrawerLayout
+
+//直播-在线观众        android.app.Dialog
+
+//直播-用户信息-弹出层  com.bytedance.android.livesdk.widget.LiveBottomSheetDialog
+
+//用户中心            com.ss.android.ugc.aweme.profile.ui.UserProfileActivity
+
+//视频页              com.ss.android.ugc.aweme.detail.ui.DetailActivity
+
+
+//console.log(currentActivity());

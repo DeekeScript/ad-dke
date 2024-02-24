@@ -1,0 +1,22 @@
+首先安转一个openssl并配置全局变量
+
+1、生成带密码的私钥（有密码key） 密码：Abc123456     ==》server.pass.key
+
+openssl genrsa -aes256 -passout pass:Abc123456 -out server.pass.key 2048
+
+
+2、把生成带密码的私钥去掉密码（免密码key）密码：Abc123456  ==》server.key
+
+openssl rsa -passin pass:Abc123456 -in server.pass.key -out server.key
+
+
+3、生成证书请求文件(CSR)  也可以把这个发给证书厂商签发证书，然后把收到的证书内容写入pem中  ==》server.csr 
+
+注：/C=CN（国家）/ST=GUANGDONG（省）/L=SHENZHEN（市）/O=CMB（公司）/OU=CMBCBS（部门）/CN=xxxxx.com（域名）
+
+openssl req -new -sha256 -key server.key -out server.csr -subj "/C=CN/ST=GUANGDONG/L=SHENZHEN/O=CMB/OU=CMBCBS/CN=xxxxx.com"
+
+
+4、生成自签名证书（pem） 也有生成crt后缀的，都一样  ==》server.pem
+
+openssl x509 -req -sha256 -days 10950 -in server.csr -signkey server.key -out server.pem
