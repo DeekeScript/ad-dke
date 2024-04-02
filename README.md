@@ -1,6 +1,6 @@
 # 抖音黑科技AI引流获客软件
 
-## 【我们自主研发的DeekeScript不久后将发布，我们正在招贤纳士，要求请查看文档地址：<a href="https://doc.deeke.top/INVITE.html" target="_blank">https://doc.deeke.top</a>
+## 【我们自主研发的DeekeScript不久后将发布，我们正在招贤纳士，要求请查看文档地址：<a href="https://doc.deeke.top/INVITE.html" target="_blank">https://doc.deeke.top/INVITE.html</a>
 
 ### 【tips：后台版一键贴牌功能即将推出（无需技术人员，即可完成贴牌工作），届时将会招募各地城市合伙人】
 ### 【tips：我们耕耘这个行业已有多年，我们未来还需要更多的合作伙伴，期待你的加入！联系方式，请在文档末尾查看】
