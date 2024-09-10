@@ -89,10 +89,6 @@
 
 PHP需要的配置，可以在.env里面配置
 
-### 成功案例我们有很多，有需要请联系商务：
-
-<img alt="docker服务" src="image/weixin.jpg" title="docker服务" width="30%"/>
-
-### 本程序由8年资深软件工程师开发【团队正在招募一些有业余时间的软件工程师（PHP，Python，Golang，Android，IOS，JavaScript，逆向工程师等）共图大业~】：
+### 如需咨询相关业务，请联系作者：
 
 <img alt="docker服务" src="image/weixin.jpg" title="docker服务" width="30%"/>
