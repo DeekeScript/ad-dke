@@ -1,10 +1,18 @@
 # 抖音黑科技AI引流获客软件
-【最新版本在这：<a href="https://github.com/DeekeScript/ad-deeke">https://github.com/DeekeScript/ad-deeke</a>】
-<img src='https://home.deeke.top/Index/githubStatistic?name=github-ad-dke' width=0 height=0 />
-##  【我们自主研发的DeekeScript不久后将发布，我们正在招贤纳士，要求请查看文档地址：<a href="https://doc.deeke.top/INVITE.html" target="_blank">https://doc.deeke.top/INVITE.html</a>
 
-### 【tips：后台版一键贴牌功能即将推出（无需技术人员，即可完成贴牌工作），届时将会招募各地城市合伙人】
-### 【tips：我们耕耘这个行业已有多年，我们未来还需要更多的合作伙伴，期待你的加入！联系方式，请在文档末尾查看】
+> 最新版本在这：<a href="https://github.com/DeekeScript/ad-deeke">https://github.com/DeekeScript/ad-deeke</a>
+
+<img src='https://home.deeke.top/Index/githubStatistic?name=github-ad-dke' width=0 height=0 />
+
+> 我们自主研发的DeekeScript底层框架已上线：<a href="https://doc.deeke.cn" target="_blank">点击查看</a>
+
+### 我们的优势
+- 具备底层框架研发能力（自主研发的DeekeScript框架）
+- 具备产品研发能力，可能解决行业尖端问题
+- 支持各平台定制
+- 产品稳定性、流畅度行业领先，贴牌遍布全国各地
+- 团队成员多，有丰富的产品经验
+- 产品持续更新
 
 ### 管理员后台展示
 
