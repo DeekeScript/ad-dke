@@ -2,7 +2,8 @@
 <img src='https://home.deeke.top/Index/githubStatistic?name=github-ad-dke' width=0 height=0 />
 
 ### Deeke官网
-> <a href="https://deeke.cn">https://deeke.cn（可获取报价）</a>
+
+> <a href="https://deeke.cn"> https://deeke.cn（可获取报价）</a>
 >
 > <a href="https://www.deeke.cn/blog/deeke-tutorial">点击这里，立即试用</a>
 ---
