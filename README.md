@@ -1,9 +1,17 @@
 # 抖音黑科技AI引流获客软件
 <img src='https://home.deeke.top/Index/githubStatistic?name=github-ad-dke' width=0 height=0 />
 
+### Deeke官网
+> <a href="https://deeke.cn">https://deeke.cn（可获取报价）</a>
+>
+> <a href="https://home.deeke.top">点击这里，立即试用</a>
+---
+
 > 最新版本在这：<a href="https://github.com/DeekeScript/ad-deeke">https://github.com/DeekeScript/ad-deeke</a>
 
 > 我们自主研发的DeekeScript底层框架已上线：<a href="https://doc.deeke.cn" target="_blank">点击查看</a>
+
+---
 
 ### 我们的优势
 - 具备底层框架研发能力（自主研发的DeekeScript框架）
