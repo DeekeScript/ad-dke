@@ -4,7 +4,7 @@
 ### Deeke官网
 > <a href="https://deeke.cn">https://deeke.cn（可获取报价）</a>
 >
-> <a href="https://home.deeke.top">点击这里，立即试用</a>
+> <a href="https://www.deeke.cn/blog/deeke-tutorial">点击这里，立即试用</a>
 ---
 
 > 最新版本在这：<a href="https://github.com/DeekeScript/ad-deeke">https://github.com/DeekeScript/ad-deeke</a>
